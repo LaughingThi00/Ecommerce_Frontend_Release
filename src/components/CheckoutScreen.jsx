@@ -3,6 +3,7 @@ import axios from "axios";
 // import { useState } from "react";
 import {Button} from 'react-bootstrap';
 import {Navigate} from "react-router-dom";
+import { apiUrl } from "../constants/Constant";
 
 function CheckoutScreen() {
 
@@ -24,41 +25,14 @@ function CheckoutScreen() {
  sum+=toNum(x.product.priceOn)*x.num
  })
  
-//  const handlePay = async () => {
-//    try {
-//      await axios.post("http://localhost:8000/user/message-send", {
-//        phoneTo: "+84389895377",
-//        bodyMessage:
-//          `Quý khách đã đặt hàng thành công đơn hàng Robot trị giá ${formatter.format(sum*1000)}. BK ROBOTIC cảm ơn và hẹn gặp lại!`,
-//      });
-//      const payment = await axios.post("http://localhost:8000/user/payment", {
-//        amount: (sum+30000)/1000,
-//        orderId: `DONHANG${Math.floor(Math.random() * 100000)}`,
-//        orderInfo: "DON HANG BKROBOTIC",
-//      });
- 
-//      if (payment.data.code === 200) {
-//        console.log(payment.data.data);
-//        window.location.replace(payment.data.data);
-//      }
-//    } catch (error) {
-//      console.log("Xay ra loi");
-//      console.log(error);
-//    }
-//  };
 
-  // const handleSubmit = async (e) => {
-  //   e.prevendefault();
-  //   await handlePay();
-    
-  // };
-  
+
   
   const handlePay = async (e) => {
     e.preventDefault();
     try {
       
-      const payment = await axios.post("http://localhost:8000/user/payment", {
+      const payment = await axios.post(`${apiUrl}/user/payment`, {
         amount: sum,
         orderId: `DONHANG${Math.floor(Math.random() * 100000)}`,
         orderInfo: "DON HANG BKROBOTIC",

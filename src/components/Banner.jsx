@@ -3,13 +3,14 @@ import { list } from "./../data";
 import { useState } from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
+import { homeUrl } from "../constants/Constant";
 function Banner() {
   const [wordEntered, setWordEntered] = useState("");
   const [Search, setSearch] = useState("");
   const [filteredData, setFilteredData] = useState([]);
 
   const handleRedirect = () => {
-    window.location.replace(`http://localhost:3000/detail/${Search}`);
+    window.location.replace(`${homeUrl}/${Search}`);
   };
 
   const handleFilter = (event) => {

@@ -43,25 +43,7 @@ cart.forEach(x=>{
 sum+=toNum(x.product.priceOn)*x.num
 })
 
-// const handlePay = async (e) => {
-//   e.preventDefault();
-//   try {
-    
-//     const payment = await axios.post("http://localhost:8000/user/payment", {
-//       amount: sum,
-//       orderId: `DONHANG${Math.floor(Math.random() * 100000)}`,
-//       orderInfo: "DON HANG BKROBOTIC",
-//     });
 
-//     if (payment.data.code === 200) {
-//       console.log(payment.data.data);
-//       window.location.replace(payment.data.data);
-//     }
-//   } catch (error) {
-//     console.log("Xay ra loi");
-//     console.log(error);
-//   }
-// };
   return (
     <div className="cart">
       <div className="table-container">

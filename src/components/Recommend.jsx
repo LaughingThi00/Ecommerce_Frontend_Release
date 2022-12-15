@@ -1,4 +1,5 @@
 import React from 'react'
+import { homeUrl } from '../constants/Constant'
 
 function Recommend() {
   return (
@@ -19,7 +20,7 @@ function Recommend() {
                 <div className="rl-button">
                     <div className="rl-button-buynow btn-shake">
                         <ion-icon className="rl-button-buynow-btn" name="cart-outline" />
-                        <div className="rl-button-buynow-text" onClick={()=>window.location.replace("http://localhost:3000/detail/11")}>Mua ngay</div>
+                        <div className="rl-button-buynow-text" onClick={()=>window.location.replace(`${homeUrl}/detail/11`)}>Mua ngay</div>
                     </div>
                 </div>
             </div>

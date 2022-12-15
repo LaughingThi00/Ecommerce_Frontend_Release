@@ -4,6 +4,7 @@ import Footer from "../components/Footer";
 import "../css/policy.css";
 import { Button } from "react-bootstrap";
 import axios from "axios";
+import { apiUrl, homeUrl } from "../constants/Constant";
 
 
 const Complete = () => {
@@ -27,7 +28,7 @@ const Complete = () => {
             currency: 'VND',
         
           });
-        await axios.post("http://localhost:8000/user/message-send", {
+        await axios.post(`${apiUrl}/user/message-send`, {
       phoneTo: "+84389895377",
       bodyMessage:
         `Quý khách đã đặt hàng thành công đơn hàng Robot trị giá ${formatter.format(sum)}. BK ROBOTIC cảm ơn và hẹn gặp lại!`,
@@ -35,7 +36,7 @@ const Complete = () => {
 
     localStorage.setItem("cart",JSON.stringify([]));
     window.dispatchEvent(new Event("storage"));
-        window.location.replace("http://localhost:3000")
+        window.location.replace(`${homeUrl}`)
     }
 
   return (
