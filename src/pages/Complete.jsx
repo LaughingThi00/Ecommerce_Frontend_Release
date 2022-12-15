@@ -4,7 +4,7 @@ import Footer from "../components/Footer";
 import "../css/policy.css";
 import { Button } from "react-bootstrap";
 import axios from "axios";
-import { apiUrl, homeUrl } from "../constants/Constant";
+import {apiMessage, homeUrl } from "../constants/Constant";
 
 
 const Complete = () => {
@@ -28,7 +28,7 @@ const Complete = () => {
             currency: 'VND',
         
           });
-        await axios.post(`${apiUrl}/user/message-send`, {
+        await axios.post(`${apiMessage}`, {
       phoneTo: "+84389895377",
       bodyMessage:
         `Quý khách đã đặt hàng thành công đơn hàng Robot trị giá ${formatter.format(sum)}. BK ROBOTIC cảm ơn và hẹn gặp lại!`,

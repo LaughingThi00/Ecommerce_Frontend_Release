@@ -4,7 +4,7 @@ import forward from '../icon-font/chevron-forward-outline.svg';
 import call from '../icon-font/call-outline.svg';
 import { ToastContainer, toast } from 'react-toastify';
   import 'react-toastify/dist/ReactToastify.css';
-import { apiUrl } from '../constants/Constant';
+import { apiMessage } from '../constants/Constant';
 
 function Help() {
     
@@ -12,7 +12,7 @@ const handleSend= async(e)=>{
   e.preventDefault()
   toast("Bạn đã gửi yêu cầu thành công. Nhân viên của chúng tôi sẽ sớm liên hệ!")
 
-  await axios.post(`${apiUrl}/user/message-send`, {
+  await axios.post(`${apiMessage}`, {
     phoneTo: "+84389895377",
     bodyMessage:
       `Trung tâm chăm sóc khách hàng đã nhận được yêu câu của quý khách. Chúng tôi sẽ liên hệ trong giây lát!`,

@@ -3,7 +3,7 @@ import axios from "axios";
 // import { useState } from "react";
 import {Button} from 'react-bootstrap';
 import {Navigate} from "react-router-dom";
-import { apiUrl } from "../constants/Constant";
+import { apiPayment } from "../constants/Constant";
 
 function CheckoutScreen() {
 
@@ -32,7 +32,7 @@ function CheckoutScreen() {
     e.preventDefault();
     try {
       
-      const payment = await axios.post(`${apiUrl}/user/payment`, {
+      const payment = await axios.post(`${apiPayment}`, {
         amount: sum,
         orderId: `DONHANG${Math.floor(Math.random() * 100000)}`,
         orderInfo: "DON HANG BKROBOTIC",
