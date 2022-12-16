@@ -1,20 +1,27 @@
-import React from "react";
+import React, { useState } from "react";
 import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import "../css/needwarranty.css";
-import { apiMessage } from "../constants/Constant";
 
 function NeedWarranty({ open, onClose }) {
+  const [Phone,setPhone] = useState('')
+
   if (!open) return null;
+
+
+const handleChangePhone=(e)=>{
+  setPhone(e.target.value)
+}
+
   const handleSend = async (e) => {
     e.preventDefault();
     toast(
       "Bạn đã gửi yêu cầu thành công. Nhân viên của chúng tôi sẽ sớm liên hệ!"
     );
 
-    await axios.post(`${apiMessage}`, {
-      phoneTo: "+84389895377",
+    await axios.post("http://localhost:8000/user/message-send", {
+      phoneTo: `+84${Phone.slice(1)}`,
       bodyMessage: `Trung tâm chăm sóc khách hàng đã nhận được yêu câu của quý khách. Chúng tôi sẽ liên hệ trong giây lát!`,
     });
   };
@@ -57,6 +64,8 @@ function NeedWarranty({ open, onClose }) {
                   type="text"
                   id="phone"
                   name="phone"
+                  value={Phone}
+                  onChange={handleChangePhone}
                   placeholder="0948566534"
                 />
               </div>

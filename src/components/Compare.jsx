@@ -3,9 +3,9 @@ import '../css/detail.css';
 import styled from 'styled-components';
 import {Link} from 'react-router-dom';
 import closeSearch from '../icon-font/close-icon.svg';
-import data from './SearchData';
 import { toast } from 'react-toastify';
-  import 'react-toastify/dist/ReactToastify.css';
+import 'react-toastify/dist/ReactToastify.css';
+import product from './SearchData';
 
 const CompareForm = styled.div`
     background-color: #fff;
@@ -128,7 +128,7 @@ function Compare({open, onClose, handle}) {
     const handleFilter = (event) => {
         const searchWord = event.target.value;
         setWordEntered(searchWord);
-        const newFilter = data.filter((value) => {
+        const newFilter = product.filter((value) => {
           return value.name.toLowerCase().includes(searchWord.toLowerCase());
         });
     
