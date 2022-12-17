@@ -10,7 +10,7 @@ function Banner() {
   const [filteredData, setFilteredData] = useState([]);
 
   const handleRedirect = () => {
-    window.location.replace(`${homeUrl}/${Search}`);
+    window.location.replace(`${homeUrl}/detail/${Search}`);
   };
 
   const handleFilter = (event) => {
